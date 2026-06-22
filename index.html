@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本語 2028 — Langue japonaise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&family=Crimson+Pro:ital,wght@1,300;1,400&family=Lato:wght@300;400;700&family=M+PLUS+Rounded+1c:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1410;--ink-soft:#3d3530;--ink-faint:#7a6e68;
+  --washi:#f7f3ec;--washi-dark:#ede7dc;--washi-mid:#e8dfd2;
+  --red:#b5342a;--gold:#c49a3c;--teal:#2a7a6e;--navy:#1e3a5f;
+  --red-soft:#d9534f22;--gold-soft:#c49a3c18;--teal-soft:#2a7a6e15;--navy-soft:#1e3a5f15;
+  --col-kanji:#9b1c1c;--col-kana:#1a5c2e;--col-romaji:#1a3a6e;--col-fr:#1a1410;
+  --font-jp:'Noto Serif JP',serif;--font-jp-alt:'M PLUS Rounded 1c',sans-serif;
+  --font-title:'Shippori Mincho',serif;--font-display:'Crimson Pro',serif;--font-body:'Lato',sans-serif;
+  --theme-color:#4a3f78;--jp-scale:1;
+}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--washi);color:var(--ink);font-family:var(--font-body);min-height:100vh;overflow-x:hidden}body:before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(180,160,130,.03) 3px,rgba(180,160,130,.03) 4px),repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(180,160,130,.02) 5px,rgba(180,160,130,.02) 6px);pointer-events:none;z-index:0}
+header{position:relative;z-index:1;padding:2.3rem 2rem 1.3rem;border-bottom:1px solid var(--washi-mid);display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap}.title-jp{font-family:var(--font-jp);font-weight:300;font-size:2.25rem;letter-spacing:.08em;line-height:1}.title-sub{font-family:var(--font-display);font-style:italic;font-size:1.08rem;color:var(--ink-faint);margin-top:4px;letter-spacing:.03em}.summary-pill{font-size:14px;color:var(--ink-soft);padding:5px 16px;border:1px solid var(--washi-mid);border-radius:20px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.top-nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:.7rem 1.2rem;background:rgba(247,243,236,.96);border-bottom:1px solid var(--washi-mid);backdrop-filter:blur(8px)}.tab-btn,.small-btn{border:1px solid var(--washi-mid);background:var(--washi);color:var(--ink-faint);border-radius:22px;padding:8px 16px;font-family:var(--font-body);font-size:13px;cursor:pointer;transition:.18s;white-space:nowrap}.tab-btn:hover,.small-btn:hover{border-color:var(--ink-soft);color:var(--ink)}.tab-btn.active{background:#fff;color:var(--ink);border-color:var(--theme-color);box-shadow:0 1px 5px rgba(0,0,0,.06)}.spacer{flex:1}.small-btn.gold{border-color:#dcc68f;color:#9a7526}.small-btn.teal{border-color:#b8d4c4;color:var(--teal)}
+.filter-bar{position:relative;z-index:1;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;padding:.75rem 1.2rem;border-bottom:1px solid var(--washi-mid);background:var(--washi)}.fgroup{display:flex;flex-direction:column;gap:3px}.flabel{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding-left:5px}.fsel,.search{border:1px solid var(--washi-mid);border-radius:20px;background:var(--washi-dark);font-family:var(--font-body);font-size:13px;color:var(--ink-soft);padding:6px 12px;outline:none}.search{min-width:230px;background:#fff}.fsel:focus,.search:focus{border-color:var(--theme-color);background:#fff}
+main{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:1.6rem 1.2rem 4rem}.panel{display:none}.panel.active{display:block}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin:0 0 1rem}.section-title{font-family:var(--font-title);font-size:1.45rem;font-weight:400;letter-spacing:.04em}.section-note{font-size:.92rem;color:var(--ink-faint);line-height:1.5}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}.card{background:#fff;border:1px solid var(--washi-mid);border-radius:16px;padding:1.15rem;box-shadow:0 2px 10px rgba(0,0,0,.035);position:relative;overflow:hidden}.card:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--theme-color);opacity:.72}.jp{font-family:var(--font-jp);color:var(--col-kana);font-size:calc(1.35rem * var(--jp-scale));line-height:1.5}.kanji{font-family:var(--font-jp);color:var(--col-kanji);font-size:.95rem}.romaji{font-family:var(--font-display);font-style:italic;color:var(--col-romaji);font-size:1.05rem;line-height:1.35}.fr{color:var(--col-fr);font-size:.95rem;line-height:1.45}.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:.7rem}.badge{font-size:.72rem;border:1px solid var(--washi-mid);background:var(--washi);color:var(--ink-faint);border-radius:999px;padding:3px 9px}.row-actions{display:flex;gap:8px;margin-top:.9rem}.icon-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--washi-mid);background:var(--washi);cursor:pointer;color:var(--ink-faint);display:flex;align-items:center;justify-content:center}.icon-btn:hover{border-color:var(--teal);color:var(--teal)}.speakable-jp{cursor:pointer;border-radius:8px;transition:background .16s,box-shadow .16s}.speakable-jp:hover{background:var(--teal-soft);box-shadow:0 0 0 3px var(--teal-soft)}.speakable-jp.playing{background:var(--teal-soft);box-shadow:0 0 0 2px #b8d4c4}.speakable-jp:after{content:'  ♪';font-family:var(--font-body);font-size:.72em;color:var(--ink-faint);opacity:.45}.speakable-jp:hover:after,.speakable-jp.playing:after{color:var(--teal);opacity:.9}.speakable-jp-inline{cursor:pointer;border-radius:5px;padding:0 2px;transition:background .16s,box-shadow .16s;color:inherit}.speakable-jp-inline:hover{background:var(--teal-soft);box-shadow:0 0 0 2px var(--teal-soft)}.speakable-jp-inline.playing{background:var(--teal-soft);box-shadow:0 0 0 2px #b8d4c4}.speakable-jp.exported,.speakable-jp-inline.exported{background:var(--gold-soft);box-shadow:0 0 0 2px #dcc68f}.export-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(12px);z-index:300;background:#fff;border:1px solid var(--washi-mid);border-radius:999px;padding:10px 16px;box-shadow:0 8px 28px rgba(0,0,0,.14);font-size:13px;color:var(--ink-soft);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s}.export-toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+.flash-wrap{max-width:660px;margin:0 auto}.progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:1.1rem}.progress-track{height:2px;background:var(--washi-mid);flex:1;border-radius:3px;overflow:hidden}.progress-bar{height:100%;background:var(--theme-color);transition:.3s}.progress-text{font-size:12px;color:var(--ink-faint);font-variant-numeric:tabular-nums}.flash-card{min-height:310px;background:#fff;border:1px solid var(--washi-mid);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;gap:.65rem;box-shadow:0 4px 18px rgba(0,0,0,.05);cursor:pointer;position:relative;overflow:hidden}.flash-card:before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--theme-color)}.flash-front{font-family:var(--font-jp);color:var(--col-kana);font-size:calc(clamp(1.8rem,6vw,3.8rem) * var(--jp-scale));line-height:1.25}.flash-fr{font-size:clamp(1.3rem,4vw,2.1rem);font-weight:700}.controls{display:flex;gap:10px;margin-top:1rem}.ctrl{flex:1;padding:12px;border-radius:12px;border:1px solid var(--washi-mid);background:var(--washi);font-family:var(--font-body);cursor:pointer;color:var(--ink-soft)}.ctrl:hover{background:var(--washi-dark)}.ctrl.good{color:var(--teal);border-color:#b8d4c4}.ctrl.bad{color:var(--red);border-color:#e0c4c4}
+.interaction-card{grid-column:span 1}.interaction-card .situation{font-size:.78rem;color:var(--ink-faint);line-height:1.4;margin-bottom:.55rem}.intent{font-size:.85rem;color:var(--ink-soft);font-weight:700;margin-bottom:.4rem}.details{margin-top:.8rem;border-top:1px solid var(--washi-mid);padding-top:.75rem}.details summary{cursor:pointer;color:var(--teal);font-size:.85rem}.detail-grid{display:grid;gap:.55rem;margin-top:.7rem}.detail-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:.15rem}.detail-text{font-size:.86rem;line-height:1.45;color:var(--ink-soft)}.sens1{border-color:#cfe4d7;color:#1e5e36}.sens2{border-color:#d7d7c8}.sens3{border-color:#e6d29c;color:#80601c}.sens4{border-color:#e0b0a0;color:#8b3a20}.sens5{border-color:#d99;color:#8b2020}
+.grammar-accordion{margin:0 0 1rem;border:1px solid var(--washi-mid);border-radius:16px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.025);overflow:hidden}.grammar-accordion summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:1rem 1.15rem;font-family:var(--font-title);font-size:1.22rem;letter-spacing:.04em;color:var(--ink);background:linear-gradient(180deg,#fff,var(--washi))}.grammar-accordion summary::-webkit-details-marker{display:none}.grammar-accordion summary:before{content:'▸';font-family:var(--font-body);font-size:.9rem;color:var(--teal);transition:transform .18s}.grammar-accordion[open] summary:before{transform:rotate(90deg)}.grammar-accordion-body{padding:1rem;border-top:1px solid var(--washi-mid);background:var(--washi)}.grammar-chapter-count{margin-left:auto;font-family:var(--font-body);font-size:.72rem;color:var(--ink-faint);border:1px solid var(--washi-mid);border-radius:999px;padding:2px 8px;background:#fff}.grammar-card .badge.chapter{border-color:#d8c79a;color:#80601c;background:#fffaf0}.grammar-expression{font-family:var(--font-jp);color:var(--col-kana);font-size:calc(1.3rem * var(--jp-scale));line-height:1.35;margin:.55rem 0 0}.grammar-expression-romaji{font-family:var(--font-display);font-style:italic;color:var(--col-romaji);font-size:1rem;line-height:1.35;margin:.05rem 0 .65rem}
+.grammar-card .section-note{margin-top:.4rem}.grammar-card.wide{grid-column:1/-1;padding:1.35rem 1.4rem}.grammar-intro{margin-top:.7rem;padding:1rem 1.1rem;border:1px solid var(--washi-mid);background:linear-gradient(180deg,#fff,var(--washi));border-radius:14px;font-size:1rem;line-height:1.72;color:var(--ink-soft)}.grammar-rich-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:1rem}.grammar-rich-section{border:1px solid var(--washi-mid);background:#fff;border-radius:14px;padding:1rem 1rem .95rem}.grammar-rich-section.wide{grid-column:1/-1}.grammar-rich-section h4{font-family:var(--font-title);font-size:1.02rem;font-weight:400;letter-spacing:.03em;margin-bottom:.45rem;color:var(--ink)}.grammar-rich-text{font-size:.92rem;line-height:1.65;color:var(--ink-soft)}.grammar-rich-list{margin:.65rem 0 0 1rem;color:var(--ink-soft)}.grammar-rich-list li{margin:.32rem 0;line-height:1.55}.grammar-patterns{display:grid;gap:8px;margin-top:.75rem}.grammar-pattern{padding:.6rem .75rem;border-radius:10px;background:var(--washi);border:1px solid var(--washi-mid);font-size:.88rem;line-height:1.5;color:var(--ink-soft)}.particle-table-wrap{margin-top:.75rem;overflow-x:auto}.particle-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:.87rem;background:#fff;border:1px solid var(--washi-mid);border-radius:12px;overflow:hidden}.particle-table th,.particle-table td{padding:.65rem .7rem;border-bottom:1px solid var(--washi-mid);text-align:left;vertical-align:top;line-height:1.45;overflow-wrap:anywhere}.particle-table th{background:var(--washi);font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}.particle-table tr:last-child td{border-bottom:0}.particle-mark{font-family:var(--font-jp);font-size:1.2rem;color:var(--col-kana)}.particle-reading{font-family:var(--font-display);font-style:italic;color:var(--col-romaji);font-size:.9rem}.grammar-rich-example{border-left:3px solid var(--washi-mid);padding-left:.75rem;margin-top:.7rem}.grammar-rich-example .jp{font-size:1.04rem}.grammar-tip-box{margin-top:1rem;padding:1rem 1.05rem;border:1px solid #dcc68f;background:#fffaf0;border-radius:14px}.grammar-tip-box h4{font-family:var(--font-title);font-size:1rem;font-weight:400;color:#80601c;margin-bottom:.35rem}.grammar-tip-box p{font-size:.9rem;line-height:1.65;color:var(--ink-soft)}.grammar-pedago{margin-top:.85rem;border:1px solid var(--washi-mid);border-radius:12px;background:var(--washi);padding:.75rem .85rem}.grammar-pedago-row{margin:.45rem 0}.grammar-pedago-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:.18rem}.grammar-pedago-text{font-size:.86rem;line-height:1.55;color:var(--ink-soft)}.example{border-left:3px solid var(--washi-mid);padding-left:.75rem;margin-top:.7rem}.empty{text-align:center;color:var(--ink-faint);padding:3rem 1rem}
+.settings-overlay{display:none;position:fixed;inset:0;background:rgba(26,20,16,.42);z-index:120;align-items:center;justify-content:center;padding:1rem}.settings-overlay.open{display:flex}.settings-modal{width:min(520px,94vw);background:var(--washi);border:1px solid var(--washi-mid);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.18);padding:1.7rem 1.7rem 1.45rem;position:relative}.settings-modal h3{font-family:var(--font-title);font-weight:400;font-size:1.35rem;letter-spacing:.04em;margin-bottom:1.5rem}.settings-close{position:absolute;top:14px;right:16px;border:0;background:transparent;font-size:24px;color:var(--ink-faint);cursor:pointer}.settings-close:hover{color:var(--ink)}.settings-row{margin-bottom:1.35rem}.settings-label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.75rem}.settings-slider-wrap{display:flex;align-items:center;gap:12px}.settings-slider-wrap input{flex:1}.settings-val{font-size:14px;color:var(--ink-soft);min-width:44px;text-align:right;font-variant-numeric:tabular-nums}.font-toggle{display:grid;grid-template-columns:1fr 1fr;gap:12px}.font-opt{border:1px solid var(--washi-mid);background:var(--washi);border-radius:14px;padding:1rem .8rem;cursor:pointer;text-align:center;transition:.18s}.font-opt:hover{border-color:var(--ink-soft)}.font-opt.active{background:#fff;border-color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.06)}.font-opt span{display:block;font-size:1.65rem;line-height:1.25;margin-bottom:.35rem}.font-opt small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}.ctrl.dice{flex:0 0 74px;font-size:18px}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(26,20,16,.42);z-index:100;align-items:center;justify-content:center;padding:1rem}.modal-overlay.open{display:flex}.modal{width:min(650px,96vw);max-height:86vh;overflow:auto;background:var(--washi);border:1px solid var(--washi-mid);border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.16)}.modal-head{position:sticky;top:0;background:var(--washi);border-bottom:1px solid var(--washi-mid);padding:1.1rem 1.25rem;display:flex;justify-content:space-between;gap:1rem}.modal-body{padding:1.2rem}.close{border:0;background:transparent;font-size:22px;cursor:pointer;color:var(--ink-faint)}
+@media(max-width:760px){.grammar-rich-grid{grid-template-columns:1fr}.particle-table{font-size:.82rem}.particle-table th,.particle-table td{padding:.55rem .55rem}}@media(max-width:640px){header{padding:1.4rem 1rem 1rem}.title-jp{font-size:1.7rem}.top-nav{position:relative}.filter-bar{align-items:stretch}.fgroup,.fsel,.search{width:100%}.controls{flex-direction:column}.grid{grid-template-columns:1fr}.section-head{display:block}.flash-card{min-height:260px}}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="title-jp">日本語 2028</div><div class="title-sub">langue japonaise — vocabulaire, grammaire, révision, interactions</div></div>
+  <div class="summary-pill" id="summary-pill">Chargement…</div>
+</header>
+<nav class="top-nav">
+  <button class="tab-btn active" data-tab="vocab" onclick="setTab('vocab')">📚 Vocabulaire</button>
+  <button class="tab-btn" data-tab="grammar" onclick="setTab('grammar')">📐 Grammaire</button>
+  <button class="tab-btn" data-tab="review" onclick="setTab('review')">🎴 Révision</button>
+  <button class="tab-btn" data-tab="interactions" onclick="setTab('interactions')">💬 Interaction</button>
+  <span class="spacer"></span>
+  <button class="small-btn teal" onclick="toggleDirection()" id="direction-btn">🇯🇵 → 🇫🇷</button>
+  <button class="small-btn gold" onclick="openInfo()">ℹ</button>
+  <button class="small-btn" onclick="openSettings()" title="Réglages d’affichage">⚙</button>
+</nav>
+<section class="filter-bar" id="filter-bar">
+  <div class="fgroup"><span class="flabel">Pack</span><select class="fsel" id="pack-filter" onchange="refreshAll()"></select></div>
+  <div class="fgroup"><span class="flabel">Thème</span><select class="fsel" id="theme-filter" onchange="refreshAll()"></select></div>
+  <div class="fgroup"><span class="flabel">Niveau</span><select class="fsel" id="level-filter" onchange="refreshAll()"><option value="all">Tous</option><option value="1">1 — débutant</option><option value="2">2 — intermédiaire</option><option value="3">3 — avancé</option></select></div>
+  <div class="fgroup"><span class="flabel">Recherche</span><input class="search" id="search" placeholder="kana, kanji, romaji, français…" oninput="refreshAll()"></div>
+</section>
+<main>
+  <section id="panel-vocab" class="panel active">
+    <div class="section-head"><div><h2 class="section-title">Vocabulaire</h2><p class="section-note">Vue propre des cartes existantes. Les exemples déjà présents restent accessibles.</p></div><div class="section-note" id="vocab-count"></div></div>
+    <div class="grid" id="vocab-grid"></div>
+  </section>
+  <section id="panel-grammar" class="panel">
+    <div class="section-head"><div><h2 class="section-title">Grammaire</h2><p class="section-note">Fiches courtes, pratiques, liées aux interactions et au vocabulaire.</p></div></div>
+    <div class="grid" id="grammar-grid"></div>
+  </section>
+  <section id="panel-review" class="panel">
+    <div class="section-head"><div><h2 class="section-title">Révision</h2><p class="section-note">Flashcards simples. Le sens peut être inversé avec le bouton 🇯🇵 ↔ 🇫🇷.</p></div></div>
+    <div class="flash-wrap">
+      <div class="progress-wrap"><div class="progress-track"><div class="progress-bar" id="prog"></div></div><span class="progress-text" id="prog-text">—</span></div>
+      <div class="flash-card" id="flash-card" onclick="flipFlash()"><div class="empty">Aucune carte</div></div>
+      <div class="controls"><button class="ctrl bad" onclick="markFlash(false)">✗ À revoir</button><button class="ctrl" onclick="prevFlash()">← Précédent</button><button class="ctrl dice" onclick="randomFlash()" title="Tirer une carte au hasard dans la liste active">🎲</button><button class="ctrl" onclick="nextFlash()">Suivant →</button><button class="ctrl good" onclick="markFlash(true)">✓ Je savais</button></div>
+    </div>
+  </section>
+  <section id="panel-interactions" class="panel">
+    <div class="section-head"><div><h2 class="section-title">Interaction avec les Japonais</h2><p class="section-note">Phrases naturelles, polies et prudentes pour parler sans être intrusif.</p></div><div class="section-note" id="inter-count"></div></div>
+    <div class="filter-bar" style="padding:.75rem 0;background:transparent;border:0">
+      <div class="fgroup"><span class="flabel">Thème interaction</span><select class="fsel" id="interaction-theme" onchange="renderInteractions()"></select></div>
+      <div class="fgroup"><span class="flabel">Sensibilité max</span><select class="fsel" id="sens-filter" onchange="renderInteractions()"><option value="5">Tout</option><option value="1">1 — très sûr</option><option value="2">2 — normal</option><option value="3">3 — avec tact</option><option value="4">4 — délicat</option></select></div>
+      <div class="fgroup"><span class="flabel">Recherche</span><input class="search" id="interaction-search" placeholder="travail, famille, climat…" oninput="renderInteractions()"></div>
+    </div>
+    <div class="grid" id="interaction-grid"></div>
+  </section>
+</main>
+<div class="settings-overlay" id="settings-overlay" onclick="if(event.target.id==='settings-overlay')closeSettings()">
+  <div class="settings-modal">
+    <button class="settings-close" onclick="closeSettings()">✕</button>
+    <h3>Réglages d'affichage</h3>
+    <div class="settings-row">
+      <span class="settings-label">Taille du texte japonais</span>
+      <div class="settings-slider-wrap">
+        <span style="font-size:12px;color:var(--ink-faint)">あ</span>
+        <input type="range" id="jp-size-slider" min="90" max="130" step="5" value="100" oninput="applyJPSize(this.value)">
+        <span style="font-size:20px;color:var(--ink-faint)">あ</span>
+        <span class="settings-val" id="jp-size-val">100%</span>
+      </div>
+    </div>
+    <div class="settings-row">
+      <span class="settings-label">Police japonaise</span>
+      <div class="font-toggle">
+        <button class="font-opt active" id="font-opt-serif" onclick="setJPFont('serif')"><span style="font-family:'Noto Serif JP',serif">あさごはん</span><small>Serif</small></button>
+        <button class="font-opt" id="font-opt-round" onclick="setJPFont('round')"><span style="font-family:'M PLUS Rounded 1c',sans-serif">あさごはん</span><small>Arrondie</small></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target.id==='modal-overlay')closeModal()"><div class="modal"><div class="modal-head"><div id="modal-title"></div><button class="close" onclick="closeModal()">✕</button></div><div class="modal-body" id="modal-body"></div></div></div>
+<script src="dictionnaire_2028.js"></script>
+<script src="dico_perso_2028.js"></script>
+<script src="grammaire_2028.js"></script>
+<script src="interactions_2028.js"></script>
+<script src="situations_2028.js"></script>
+<script>
+const PACKS={voyage:'✈ Voyage',quotidien:'🌸 Quotidien',complet:'🗾 Complet',perso:'📖 Perso'};
+const THEME_META={salutations:['🙏','Salutations','#6b3a6b'],restaurant:['🍜','Restaurant','#b5342a'],transport:['🚃','Transport','#1e3a5f'],hotel:['🏯','Hôtel','#2a7a6e'],shopping:['🛍','Shopping','#7a4f1e'],sante:['🏥','Santé','#7a2a2a'],grammar:['⟡','Mots-outils','#3d5a3d'],compteurs:['🔢','Compteurs','#2a4a6e'],corps:['🧍','Corps','#5a3a6b'],famille:['👨‍👩‍👧','Famille','#6b4a1a'],meteo:['🌤','Météo','#2a5a7a'],couleurs:['🎨','Couleurs','#7a2a5a'],adjectifs:['✎','Adjectifs','#3a5a3a'],verbes:['⚡','Verbes','#5a4a1a'],nourriture:['🍱','Nourriture','#8a3a1a'],lieux:['📍','Lieux','#1a4a5a'],emotions:['💭','Émotions','#5a1a5a'],mots_outils:['⟡','Mots-outils','#3d5a3d'],orientation:['🧭','Orientation','#1e3a5f'],boissons:['🍶','Boissons','#2a5a7a'],plats:['🍣','Plats japonais','#7a2a1a'],temps:['🕐','Temps','#4a4a1a'],base:['🙏','Base','#6b3a6b'],argent:['💴','Argent','#3a5a1a'],nombres:['🔢','Nombres','#2a4a6e'],expressions:['💬','Expressions','#5a1a5a'],grammaire:['📐','Grammaire','#1a3a5a'],culture:['⛩','Culture','#6b3a1a'],loisirs:['🎌','Loisirs','#3a4a6b'],quotidien:['🌸','Quotidien','#5a3a5a']};
+let currentTab='vocab',direction='jp-fr',flashDeck=[],flashIndex=0,flashFlipped=false,ok=0,ko=0;
+function allCards(){return [...DICTIONNAIRE_2028,...DICO_PERSO_2028]}
+function escapeHtml(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function speakableJP(text,className='jp',attrs=''){const safe=escapeHtml(text);return `<div class="${className} speakable-jp" data-speak="${safe}" ${attrs}>${safe}</div>`}
+function containsJapanese(text){return /[\u3040-\u30ff\u3400-\u9fff]/.test(String(text||''))}
+function makeJapaneseClickableHTML(text){
+  const raw=String(text??'');
+  const re=/[\u3040-\u30ff\u3400-\u9fff々〆〤ヶー・、。！？]+/g;
+  let out='',last=0,m;
+  while((m=re.exec(raw))!==null){
+    out+=escapeHtml(raw.slice(last,m.index));
+    const safe=escapeHtml(m[0]);
+    out+=`<span class="speakable-jp-inline" data-speak="${safe}">${safe}</span>`;
+    last=m.index+m[0].length;
+  }
+  out+=escapeHtml(raw.slice(last));
+  return out;
+}
+function mixedTextJP(text,className='detail-text'){return `<div class="${className}">${makeJapaneseClickableHTML(text)}</div>`}
+function speakableIfJP(text,className='detail-text'){return mixedTextJP(text,className)}
+let jpClickTimer=null;
+let lastTapTime=0;
+let lastTapEl=null;
+let touchExportLock=false;
+const JP_CLICK_DELAY=260;
+const JP_DOUBLE_TAP_DELAY=360;
+document.addEventListener('click',function(e){
+  const el=e.target.closest('.speakable-jp,.speakable-jp-inline');
+  if(!el)return;
+  if(e.target.closest('button,a,input,select,summary'))return;
+  e.stopPropagation();
+  if(touchExportLock)return;
+  if(jpClickTimer){clearTimeout(jpClickTimer);jpClickTimer=null;}
+  jpClickTimer=setTimeout(()=>{
+    const text=el.dataset.speak||el.textContent.trim();
+    speakJP(text,el);
+    jpClickTimer=null;
+  },JP_CLICK_DELAY);
+});
+document.addEventListener('dblclick',function(e){
+  const el=e.target.closest('.speakable-jp,.speakable-jp-inline');
+  if(!el)return;
+  if(e.target.closest('button,a,input,select,summary'))return;
+  e.preventDefault();
+  e.stopPropagation();
+  if(jpClickTimer){clearTimeout(jpClickTimer);jpClickTimer=null;}
+  exportForGPT(el);
+});
+document.addEventListener('touchend',function(e){
+  const el=e.target.closest('.speakable-jp,.speakable-jp-inline');
+  if(!el)return;
+  if(e.target.closest('button,a,input,select,summary'))return;
+  const now=Date.now();
+  if(lastTapEl===el && now-lastTapTime<JP_DOUBLE_TAP_DELAY){
+    e.preventDefault();
+    e.stopPropagation();
+    if(jpClickTimer){clearTimeout(jpClickTimer);jpClickTimer=null;}
+    touchExportLock=true;
+    exportForGPT(el);
+    setTimeout(()=>touchExportLock=false,520);
+    lastTapTime=0;
+    lastTapEl=null;
+  }else{
+    lastTapTime=now;
+    lastTapEl=el;
+  }
+},{passive:false});
+function cleanText(s){return String(s||'').replace(/\s+/g,' ').trim();}
+function textFrom(card,sel){const node=card?.querySelector(sel);return cleanText(node?.innerText||'');}
+function contextTitleForExport(){
+  if(currentTab==='vocab')return 'vocabulaire';
+  if(currentTab==='grammar')return 'grammaire';
+  if(currentTab==='review')return 'révision';
+  if(currentTab==='interactions')return 'interaction';
+  return 'japonais';
+}
+function getExportContext(el){
+  const expr=cleanText(el.dataset.speak||el.textContent);
+  const card=el.closest('.card,.flash-card,.example,.detail-text,.grammar-rich-example,.grammar-pattern');
+  const container=el.closest('.card')||el.closest('.flash-card')||el.closest('.example')||card;
+  const titre=textFrom(container,'.section-title')||textFrom(container,'.intent')||contextTitleForExport();
+  const romaji=textFrom(container,'.romaji,.grammar-expression-romaji');
+  const fr=textFrom(container,'.fr,.flash-fr');
+  const meta=[...((container||document).querySelectorAll?.('.badge')||[])].slice(0,5).map(x=>cleanText(x.innerText)).filter(Boolean).join(' · ');
+  let visible=cleanText(container?.innerText||'');
+  if(visible.length>900) visible=visible.slice(0,900)+'…';
+  return {expr,titre,romaji,fr,meta,visible,module:contextTitleForExport()};
+}
+function buildGPTExportText(el,mode='full'){
+  const ctx=getExportContext(el);
+
+  if(mode==='light'){
+    return `# Analyse japonaise légère
+
+Analyse cette phrase japonaise hors contexte, uniquement pour comprendre la langue.
+
+## Phrase à analyser
+${ctx.expr}
+
+## Ce que je veux
+Réponds en français, de façon claire et concise.
+
+Donne seulement :
+1. la phrase japonaise exacte ;
+2. sa lecture en romaji ;
+3. sa traduction française naturelle ;
+4. une décomposition simple mot par mot ou groupe par groupe ;
+5. une explication courte de la construction ;
+6. le point essentiel à retenir.
+
+N’ajoute pas d’exemples, pas de variantes, pas de note culturelle longue, sauf si c’est indispensable pour comprendre la phrase.`;
+  }
+
+  const base=`# Demande pour mon GPT japonais 2028
+
+Je veux creuser cet élément japonais à partir de ma page GitHub.
+
+## Élément à analyser
+${ctx.expr}
+
+## Module d’origine
+${ctx.module}
+
+## Contexte visible
+${ctx.titre}${ctx.romaji?`
+Romaji : ${ctx.romaji}`:''}${ctx.fr?`
+Français : ${ctx.fr}`:''}${ctx.meta?`
+Métadonnées : ${ctx.meta}`:''}
+
+Extrait de la carte :
+${ctx.visible}
+
+## Ce que je veux
+Explique-moi cet élément en français clair, accessible à un débutant, mais de façon exigeante et complète : je veux comprendre en profondeur, même si c’est complexe.
+
+Commence impérativement par donner, à la volée si nécessaire :
+1. la phrase japonaise exacte ;
+2. sa lecture en romaji ;
+3. sa traduction française naturelle.
+
+Ensuite seulement, explique :
+4. la décomposition de la phrase ou de l’expression ;
+5. sa construction ;
+6. tous les éléments qui la composent : mots, particules, formes verbales, niveaux de politesse, sous-entendus éventuels.`;
+
+  if(mode==='core') return base;
+
+  return `${base}
+
+Puis, de façon plus synthétique, donne :
+- le registre de langue ;
+- les nuances importantes ;
+- les pièges fréquents ;
+- 2 ou 3 exemples naturels en japonais, romaji et français ;
+- une variante simple ou plus polie seulement si c’est vraiment utile ;
+- un résumé très court : ce qu’il faut retenir.`;
+}
+async function copyTextToClipboard(text){
+  if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text);return true;}
+  const ta=document.createElement('textarea');
+  ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();
+  const ok=document.execCommand('copy');document.body.removeChild(ta);return ok;
+}
+function showExportToast(msg){
+  let t=document.getElementById('export-toast');
+  if(!t){t=document.createElement('div');t.id='export-toast';t.className='export-toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('visible');
+  clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('visible'),1800);
+}
+function openGPTExportChoice(el){
+  window.__pendingGPTExportElement=el;
+  const ctx=getExportContext(el);
+  document.getElementById('modal-title').innerHTML='<div class="jp">GPT</div><div class="fr">Choisir le type d’analyse</div>';
+  document.getElementById('modal-body').innerHTML=`
+    <p class="section-note">Élément japonais sélectionné :</p>
+    <div class="example">
+      <div class="jp" style="font-size:1.15rem">${escapeHtml(ctx.expr)}</div>
+      ${ctx.romaji?`<div class="romaji">${escapeHtml(ctx.romaji)}</div>`:''}
+      ${ctx.fr?`<div class="fr">${escapeHtml(ctx.fr)}</div>`:''}
+    </div>
+    <div class="detail-grid" style="margin-top:1rem">
+      <button class="ctrl" onclick="copyGPTExportChoice('light')" style="text-align:left;padding:1rem">
+        <strong>Analyse légère</strong><br>
+        <span class="section-note">Hors contexte : japonais exact, romaji, traduction, découpage simple, construction courte, point essentiel.</span>
+      </button>
+      <button class="ctrl" onclick="copyGPTExportChoice('core')" style="text-align:left;padding:1rem">
+        <strong>Analyse ciblée</strong><br>
+        <span class="section-note">Avec contexte GitHub : décomposition, construction, mots, particules, formes verbales, politesse, sous-entendus.</span>
+      </button>
+      <button class="ctrl good" onclick="copyGPTExportChoice('full')" style="text-align:left;padding:1rem">
+        <strong>Explications complètes</strong><br>
+        <span class="section-note">Analyse ciblée + registre, nuances, pièges, exemples, variante utile et résumé.</span>
+      </button>
+    </div>`;
+  openModal();
+}
+async function copyGPTExportChoice(mode){
+  const el=window.__pendingGPTExportElement;
+  if(!el){showExportToast('Aucun élément sélectionné');return;}
+  const text=buildGPTExportText(el,mode);
+  try{
+    const ok=await copyTextToClipboard(text);
+    el.classList.add('exported');setTimeout(()=>el.classList.remove('exported'),900);
+    if(ok){
+      closeModal();
+      const msg=mode==='light'?'Analyse légère copiée':mode==='core'?'Analyse ciblée copiée':'Explications complètes copiées';
+      showExportToast(msg);
+    }else throw new Error('copy failed');
+  }catch(err){
+    document.getElementById('modal-title').innerHTML='<div class="jp">GPT</div><div class="fr">Copie manuelle</div>';
+    document.getElementById('modal-body').innerHTML=`<p class="section-note">La copie automatique a échoué. Copie ce texte puis colle-le dans ton GPT perso.</p><textarea style="width:100%;min-height:320px;border:1px solid var(--washi-mid);border-radius:12px;padding:12px;font-family:monospace;font-size:12px;background:#fff">${escapeHtml(text)}</textarea>`;
+    openModal();
+  }
+}
+function exportForGPT(el){
+  openGPTExportChoice(el);
+}
+function themeName(t){return (THEME_META[t]?.[1])||t} function themeIcon(t){return (THEME_META[t]?.[0])||'·'} function themeColor(t){return (THEME_META[t]?.[2])||'#4a3f78'}
+function speakJP(text,btn){if(!window.speechSynthesis)return;window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=.86;const voices=speechSynthesis.getVoices().filter(v=>v.lang.startsWith('ja'));const pref=voices.find(v=>/kyoko|hana|haruka|mizuki|female/i.test(v.name))||voices[0];if(pref)u.voice=pref;if(btn){btn.classList.add('playing');u.onend=()=>btn.classList.remove('playing');u.onerror=()=>btn.classList.remove('playing')}speechSynthesis.speak(u)}
+if(window.speechSynthesis){speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}
+function setTab(tab){currentTab=tab;document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+tab).classList.add('active');document.getElementById('filter-bar').style.display=(tab==='vocab'||tab==='review')?'flex':'none';refreshAll()}
+function buildFilters(){const p=document.getElementById('pack-filter');p.innerHTML=Object.entries(PACKS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');buildThemeFilter();const it=document.getElementById('interaction-theme');const themes=[...new Map(INTERACTIONS_2028.map(x=>[x.theme,x.theme_label])).entries()];it.innerHTML='<option value="all">✦ Tous</option>'+themes.map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}
+function buildThemeFilter(){const pack=document.getElementById('pack-filter').value||'voyage';const cards=getFilteredCards(false);const themes=[...new Set(cards.map(c=>c.theme))].sort((a,b)=>themeName(a).localeCompare(themeName(b),'fr'));document.getElementById('theme-filter').innerHTML='<option value="all">✦ Tout</option>'+themes.map(t=>`<option value="${t}">${themeIcon(t)} ${themeName(t)}</option>`).join('')}
+function getFilteredCards(applyText=true){const pack=document.getElementById('pack-filter')?.value||'voyage';let cards=pack==='complet'?DICTIONNAIRE_2028.slice():pack==='perso'?DICO_PERSO_2028.slice():DICTIONNAIRE_2028.filter(c=>c.pack===pack);const th=document.getElementById('theme-filter')?.value||'all';const lv=document.getElementById('level-filter')?.value||'all';if(th!=='all')cards=cards.filter(c=>c.theme===th);if(lv!=='all')cards=cards.filter(c=>String(c.level)===lv);if(applyText){const q=(document.getElementById('search')?.value||'').trim().toLowerCase();if(q)cards=cards.filter(c=>(c.kana||'').includes(q)||(c.kanji||'').includes(q)||(c.romaji||'').toLowerCase().includes(q)||(c.fr||'').toLowerCase().includes(q)||(c.theme_label||'').toLowerCase().includes(q));}return cards}
+function refreshAll(){if(currentTab==='vocab')renderVocab();if(currentTab==='review')buildFlash();if(currentTab==='grammar')renderGrammar();if(currentTab==='interactions')renderInteractions();updateSummary()}
+function renderVocab(){buildThemeFilter();const grid=document.getElementById('vocab-grid');const cards=getFilteredCards(true);document.getElementById('vocab-count').textContent=cards.length+' carte'+(cards.length>1?'s':'');grid.innerHTML=cards.slice(0,400).map((c,i)=>`<article class="card" style="--theme-color:${themeColor(c.theme)}">${speakableJP(c.kana,'jp')}${c.kanji&&c.kanji!==c.kana?`<div class="kanji">${escapeHtml(c.kanji)}</div>`:''}<div class="romaji">${escapeHtml(c.romaji)}</div><div class="fr">${escapeHtml(c.fr)}</div><div class="meta"><span class="badge">${themeIcon(c.theme)} ${themeName(c.theme)}</span><span class="badge">niveau ${c.level}</span>${c.source_label?`<span class="badge">${escapeHtml(c.source_label)}</span>`:''}</div><div class="row-actions"><button class="icon-btn" onclick="speakJP('${String(c.kana).replace(/'/g,"\\'")}',this)">♪</button><button class="icon-btn" onclick="showExamples(${i})">💬</button></div></article>`).join('')||'<div class="empty">Aucune carte pour ce filtre.</div>';window.__visibleCards=cards}
+function showExamples(i){const c=window.__visibleCards[i];const ex=c.examples||[];document.getElementById('modal-title').innerHTML=`${speakableJP(c.kana,'jp')}<div class="romaji">${escapeHtml(c.romaji)}</div><div class="fr">${escapeHtml(c.fr)}</div>`;document.getElementById('modal-body').innerHTML=ex.length?ex.map(e=>`<div class="example">${speakableJP(e.jp,'jp','style="font-size:1.08rem"')}<div class="romaji">${escapeHtml(e.romaji)}</div><div class="fr">${escapeHtml(e.fr)}</div>${e.note?`<div class="section-note">📌 ${escapeHtml(e.note)}</div>`:''}</div>`).join(''):'<div class="empty">Aucun exemple disponible pour cette entrée.</div>';openModal()}
+function buildFlash(){buildThemeFilter();flashDeck=[...getFilteredCards(true)].sort(()=>Math.random()-.5);flashIndex=0;flashFlipped=false;ok=0;ko=0;showFlash()}
+function showFlash(){const box=document.getElementById('flash-card');if(!flashDeck.length){box.innerHTML='<div class="empty">Aucune carte pour ce filtre.</div>';document.getElementById('prog').style.width='0%';document.getElementById('prog-text').textContent='—';return}const c=flashDeck[flashIndex];document.documentElement.style.setProperty('--theme-color',themeColor(c.theme));const pct=Math.round(((flashIndex+1)/flashDeck.length)*100);document.getElementById('prog').style.width=pct+'%';document.getElementById('prog-text').textContent=(flashIndex+1)+' / '+flashDeck.length+' · ✓ '+ok+' · ✗ '+ko;if(!flashFlipped){box.innerHTML=direction==='jp-fr'?`<div class="badge">${themeIcon(c.theme)} ${themeName(c.theme)} · niveau ${c.level}</div>${speakableJP(c.kana,'flash-front')}${c.kanji&&c.kanji!==c.kana?`<div class="kanji">${escapeHtml(c.kanji)}</div>`:''}<button class="icon-btn" onclick="event.stopPropagation();speakJP('${String(c.kana).replace(/'/g,"\\'")}',this)">♪</button><div class="section-note">Cliquer pour retourner</div>`:`<div class="badge">${themeIcon(c.theme)} ${themeName(c.theme)} · niveau ${c.level}</div><div class="flash-fr">${escapeHtml(c.fr)}</div><div class="section-note">Cliquer pour retourner</div>`}else{box.innerHTML=direction==='jp-fr'?`<div class="romaji" style="font-size:2rem">${escapeHtml(c.romaji)}</div><div class="flash-fr">${escapeHtml(c.fr)}</div>${speakableJP(c.kana,'jp','style="font-size:1.2rem"')}`:`${speakableJP(c.kana,'flash-front')}${c.kanji&&c.kanji!==c.kana?`<div class="kanji">${escapeHtml(c.kanji)}</div>`:''}<div class="romaji" style="font-size:1.7rem">${escapeHtml(c.romaji)}</div><button class="icon-btn" onclick="event.stopPropagation();speakJP('${String(c.kana).replace(/'/g,"\\'")}',this)">♪</button>`;speakJP(c.kana)}}
+function flipFlash(){flashFlipped=!flashFlipped;showFlash()}function nextFlash(){if(!flashDeck.length)return;flashIndex=(flashIndex+1)%flashDeck.length;flashFlipped=false;showFlash()}function prevFlash(){if(!flashDeck.length)return;flashIndex=(flashIndex-1+flashDeck.length)%flashDeck.length;flashFlipped=false;showFlash()}function randomFlash(){if(!flashDeck.length)return;let n=Math.floor(Math.random()*flashDeck.length);if(flashDeck.length>1&&n===flashIndex)n=(n+1)%flashDeck.length;flashIndex=n;flashFlipped=false;showFlash()}function markFlash(good){if(good)ok++;else ko++;nextFlash()}function toggleDirection(){direction=direction==='jp-fr'?'fr-jp':'jp-fr';document.getElementById('direction-btn').textContent=direction==='jp-fr'?'🇯🇵 → 🇫🇷':'🇫🇷 → 🇯🇵';if(currentTab==='review')showFlash()}
+function renderGrammarStandardCard(g){
+  const pedago=(g.mode_emploi||g.reflexe_debutant||g.mini_exercice)?`<div class="grammar-pedago">${g.idee_cle?`<div class="grammar-pedago-row"><div class="grammar-pedago-label">Idée clé</div><div class="grammar-pedago-text">${makeJapaneseClickableHTML(g.idee_cle)}</div></div>`:''}${g.mode_emploi?`<div class="grammar-pedago-row"><div class="grammar-pedago-label">Mode d’emploi</div><div class="grammar-pedago-text">${makeJapaneseClickableHTML(g.mode_emploi)}</div></div>`:''}${g.reflexe_debutant?`<div class="grammar-pedago-row"><div class="grammar-pedago-label">Réflexe débutant</div><div class="grammar-pedago-text">${makeJapaneseClickableHTML(g.reflexe_debutant)}</div></div>`:''}${g.mini_exercice?`<div class="grammar-pedago-row"><div class="grammar-pedago-label">Mini-exercice</div><div class="grammar-pedago-text">${makeJapaneseClickableHTML(g.mini_exercice)}</div></div>`:''}</div>`:'';
+  return `<article class="card grammar-card" style="--theme-color:#1a3a5a"><h3 class="section-title" style="font-size:1.05rem">${escapeHtml(g.titre_fr||g.titre)}</h3>${g.expression?speakableJP(g.expression,'grammar-expression'):''}<div class="grammar-expression-romaji">${escapeHtml(g.expression_romaji||'')}</div><div class="meta"><span class="badge chapter">${escapeHtml(g.chapitre||'Autres')}</span><span class="badge">${escapeHtml(g.niveau)}</span></div><p class="section-note">${makeJapaneseClickableHTML(g.explication)}</p>${pedago}${(g.exemples||[]).map(e=>`<div class="example">${speakableJP(e.jp,'jp','style="font-size:1.05rem"')}<div class="romaji">${escapeHtml(e.romaji)}</div><div class="fr">${escapeHtml(e.fr)}</div></div>`).join('')}<details class="details"><summary>Pièges et liens</summary><div class="detail-grid"><div><div class="detail-label">Piège</div>${mixedTextJP(g.pieges)}</div><div><div class="detail-label">Vocabulaire lié</div>${mixedTextJP((g.lien_vocab||[]).join(', '))}</div></div></details></article>`;
+}
+function renderGrammarRichCard(g){
+  const sections=(g.sections||[]).map(sec=>{
+    const bullets=(sec.bullets||[]).length?`<ul class="grammar-rich-list">${sec.bullets.map(b=>`<li>${makeJapaneseClickableHTML(b)}</li>`).join('')}</ul>`:'';
+    const patterns=(sec.patterns||[]).length?`<div class="grammar-patterns">${sec.patterns.map(p=>`<div class="grammar-pattern">${makeJapaneseClickableHTML(p)}</div>`).join('')}</div>`:'';
+    const examples=(sec.examples||[]).map(e=>`<div class="grammar-rich-example">${speakableJP(e.jp,'jp')}<div class="romaji">${escapeHtml(e.romaji)}</div><div class="fr">${escapeHtml(e.fr)}</div></div>`).join('');
+    const particleTable=(sec.particle_table||[]).length?`<div class="particle-table-wrap"><table class="particle-table"><colgroup><col style="width:90px"><col style="width:34%"><col></colgroup><thead><tr><th>Particule</th><th>Rôle</th><th>Exemple</th></tr></thead><tbody>${sec.particle_table.map(row=>`<tr><td><div class="particle-mark">${escapeHtml(row.p)}</div><div class="particle-reading">${escapeHtml(row.r)}</div></td><td>${escapeHtml(row.role)}</td><td>${speakableJP(row.jp,'jp','style="font-size:1rem"')}<div class="romaji">${escapeHtml(row.romaji)}</div><div class="fr">${escapeHtml(row.fr)}</div></td></tr>`).join('')}</tbody></table></div>`:'';
+    return `<section class="grammar-rich-section ${(sec.particle_table||[]).length?'wide':''}"><h4>${escapeHtml(sec.title)}</h4><div class="grammar-rich-text">${makeJapaneseClickableHTML(sec.text||'')}</div>${bullets}${patterns}${particleTable}${examples}</section>`;
+  }).join('');
+  return `<article class="card grammar-card wide" style="--theme-color:#1a3a5a"><h3 class="section-title" style="font-size:1.2rem">${escapeHtml(g.titre_fr||g.titre)}</h3>${g.expression?speakableJP(g.expression,'grammar-expression'):''}<div class="grammar-expression-romaji">${escapeHtml(g.expression_romaji||'')}</div><div class="meta"><span class="badge chapter">${escapeHtml(g.chapitre||'Autres')}</span><span class="badge">${escapeHtml(g.niveau)}</span></div><div class="grammar-intro">${makeJapaneseClickableHTML(g.explication)}</div><div class="grammar-rich-grid">${sections}</div><div class="grammar-tip-box"><h4>À retenir</h4><p>${makeJapaneseClickableHTML(g.pieges||'')}</p></div></article>`;
+}
+function renderGrammar(){
+  const grid=document.getElementById('grammar-grid');
+  const chapters=[];
+  const grouped=new Map();
+  GRAMMAIRE_2028.forEach(g=>{
+    const ch=g.chapitre||'Autres';
+    if(!grouped.has(ch)){grouped.set(ch,[]);chapters.push(ch)}
+    grouped.get(ch).push(g);
+  });
+  grid.className='';
+  grid.innerHTML=chapters.map((ch,chapterIndex)=>{
+    const items=grouped.get(ch);
+    return `<details class="grammar-accordion" ${chapterIndex===0?'open':''}><summary>${escapeHtml(ch)} <span class="grammar-chapter-count">${items.length} fiche${items.length>1?'s':''}</span></summary><div class="grammar-accordion-body"><div class="grid">`+
+    items.map(g=>g.layout==='full'?renderGrammarRichCard(g):renderGrammarStandardCard(g)).join('')+
+    `</div></div></details>`;
+  }).join('');
+}
+function renderInteractions(){const grid=document.getElementById('interaction-grid');const th=document.getElementById('interaction-theme').value||'all';const sens=Number(document.getElementById('sens-filter').value||5);const q=(document.getElementById('interaction-search').value||'').trim().toLowerCase();let arr=INTERACTIONS_2028.filter(x=>(th==='all'||x.theme===th)&&x.sensibilite<=sens);if(q)arr=arr.filter(x=>JSON.stringify(x).toLowerCase().includes(q));document.getElementById('inter-count').textContent=arr.length+' fiche'+(arr.length>1?'s':'');grid.innerHTML=arr.map(x=>`<article class="card interaction-card" style="--theme-color:${interactionColor(x.theme)}"><div class="situation">${escapeHtml(x.situation)}</div><div class="intent">${escapeHtml(x.intention)}</div><div class="fr">${escapeHtml(x.francais)}</div>${speakableJP(x.japonais,'jp','style="font-size:1.15rem;margin-top:.65rem"')}<div class="romaji">${escapeHtml(x.romaji)}</div><div class="meta"><span class="badge">${escapeHtml(x.theme_label)}</span><span class="badge">${escapeHtml(x.registre)}</span><span class="badge sens${x.sensibilite}">sensibilité ${x.sensibilite}</span><span class="badge">${escapeHtml(x.niveau)}</span></div><details class="details"><summary>Variantes, prudence, relance</summary><div class="detail-grid"><div><div class="detail-label">Quand l’utiliser</div><div class="detail-text">${escapeHtml(x.quand_utiliser)}</div></div><div><div class="detail-label">Quand éviter</div><div class="detail-text">${escapeHtml(x.quand_eviter)}</div></div><div><div class="detail-label">Variante simple</div>${speakableIfJP(x.variante_simple)}</div><div><div class="detail-label">Variante chaleureuse</div>${speakableIfJP(x.variante_chaleureuse)}</div><div><div class="detail-label">Variante prudente</div>${speakableIfJP(x.variante_prudente)}</div><div><div class="detail-label">Réponse probable</div>${speakableIfJP(x.reponse_probable)}</div><div><div class="detail-label">Relance possible</div>${speakableIfJP(x.relance_possible)}</div><div><div class="detail-label">Note culturelle</div><div class="detail-text">${escapeHtml(x.note_culturelle)}</div></div></div></details></article>`).join('')||'<div class="empty">Aucune fiche pour ce filtre.</div>'}
+function interactionColor(t){return {ouvrir_sujet:'#6b3a6b',reagir:'#2a7a6e',comprendre:'#1e3a5f',prudence:'#7a4f1e',famille:'#6b4a1a',travail:'#5a4a1a',cuisine:'#b5342a',culture:'#6b3a1a',ecologie:'#2a5a7a',actualite:'#1a3a5a',defis_japon:'#7a2a2a',nuancer:'#5a1a5a',clore:'#3d5a3d'}[t]||'#4a3f78'}
+function updateSummary(){const total=allCards().length;document.getElementById('summary-pill').innerHTML=`${total} cartes vocabulaire · ${GRAMMAIRE_2028.length} fiches grammaire · ${INTERACTIONS_2028.length} fiches interaction`}
+function openSettings(){document.getElementById('settings-overlay').classList.add('open')}function closeSettings(){document.getElementById('settings-overlay').classList.remove('open')}function setJPFont(choice){const font=choice==='round'?"'M PLUS Rounded 1c',sans-serif":"'Noto Serif JP',serif";document.documentElement.style.setProperty('--font-jp',font);document.getElementById('font-opt-serif').classList.toggle('active',choice==='serif');document.getElementById('font-opt-round').classList.toggle('active',choice==='round')}function applyJPSize(val){document.documentElement.style.setProperty('--jp-scale',val/100);document.getElementById('jp-size-val').textContent=val+'%'}
+function openModal(){document.getElementById('modal-overlay').classList.add('open')}function closeModal(){document.getElementById('modal-overlay').classList.remove('open')}function openInfo(){
+  document.getElementById('modal-title').innerHTML='<div class="jp">日本語 2028</div><div class="fr">Structure du projet Japonais 2028</div>';
+  const totalVocab=allCards().length;
+  const baseVocab=(typeof DICTIONNAIRE_2028!=='undefined')?DICTIONNAIRE_2028.length:0;
+  const persoVocab=(typeof DICO_PERSO_2028!=='undefined')?DICO_PERSO_2028.length:0;
+  const totalGrammar=(typeof GRAMMAIRE_2028!=='undefined')?GRAMMAIRE_2028.length:0;
+  const totalInteractions=(typeof INTERACTIONS_2028!=='undefined')?INTERACTIONS_2028.length:0;
+  const totalSituations=(typeof SITUATIONS_2028!=='undefined')?SITUATIONS_2028.length:0;
+  document.getElementById('modal-body').innerHTML=`
+    <p class="section-note">
+      Ce site GitHub est la base stable du projet <strong>Japonais 2028</strong> : il regroupe le vocabulaire, la grammaire,
+      les révisions et les phrases d’interaction. Le GPT personnel sert ensuite à expliquer, approfondir, corriger,
+      générer des variantes et aider à pratiquer, mais les données validées restent dans les fichiers du site.
+    </p>
+
+    <div class="example">
+      <strong>Principe général</strong><br>
+      Apprendre à comprendre et produire un japonais utile, naturel, poli, chaleureux et adapté aux vraies interactions avec des Japonais.
+      Chaque contenu privilégie l’usage réel : lecture japonaise, romaji, traduction française, niveau, thème, registre et exemples.
+    </div>
+
+    <details class="details" open>
+      <summary>1. Organisation générale de la page</summary>
+      <div class="detail-grid">
+        <div><div class="detail-label">📚 Vocabulaire</div><div class="detail-text">Cartes filtrables par pack, thème, niveau et recherche. Chaque carte affiche le japonais, le romaji, le français, le niveau et parfois des exemples.</div></div>
+        <div><div class="detail-label">📐 Grammaire</div><div class="detail-text">Fiches organisées par chapitres en accordéons : particules, structure de phrase, verbes, adjectifs, démonstratifs, points pratiques et pièges fréquents.</div></div>
+        <div><div class="detail-label">🎴 Révision</div><div class="detail-text">Mode flashcards à partir des cartes actives. Le sens peut être inversé : japonais → français ou français → japonais.</div></div>
+        <div><div class="detail-label">💬 Interaction</div><div class="detail-text">Module central pour parler naturellement avec des Japonais : questions douces, relances, prudence, nuances, sujets personnels, travail, culture, écologie, actualité et défis du Japon.</div></div>
+      </div>
+    </details>
+
+    <details class="details" open>
+      <summary>2. Fichiers chargés par GitHub Pages</summary>
+      <div class="detail-grid">
+        <div><div class="detail-label">index.html</div><div class="detail-text">Structure de la page, interface, filtres, audio, révision, affichage des cartes, modales et pont vers le GPT perso.</div></div>
+        <div><div class="detail-label">dictionnaire_2028.js</div><div class="detail-text">Base principale de vocabulaire : ${baseVocab} entrées environ dans cette version chargée.</div></div>
+        <div><div class="detail-label">dico_perso_2028.js</div><div class="detail-text">Dictionnaire personnel enrichi : ${persoVocab} entrées environ, souvent issues de besoins réels ou de sources ajoutées.</div></div>
+        <div><div class="detail-label">grammaire_2028.js</div><div class="detail-text">Fiches de grammaire : ${totalGrammar} fiches chargées, organisées par chapitres et exemples.</div></div>
+        <div><div class="detail-label">interactions_2028.js</div><div class="detail-text">Fiches d’interaction : ${totalInteractions} fiches chargées, avec registre, sensibilité, variantes, relances et notes culturelles.</div></div>
+        <div><div class="detail-label">situations_2028.js</div><div class="detail-text">Situations et scénarios de communication : ${totalSituations} éléments chargés si le fichier est utilisé par la version courante.</div></div>
+      </div>
+    </details>
+
+    <details class="details" open>
+      <summary>3. Logique des données</summary>
+      <div class="detail-grid">
+        <div><div class="detail-label">Packs</div><div class="detail-text">Voyage, quotidien, complet et perso. Le pack complet utilise la base principale ; le pack perso utilise le dictionnaire personnel.</div></div>
+        <div><div class="detail-label">Filtres</div><div class="detail-text">Les filtres permettent de réduire le contenu par thème, niveau et recherche texte : kana, kanji, romaji ou français.</div></div>
+        <div><div class="detail-label">Entrées de vocabulaire</div><div class="detail-text">Une entrée contient idéalement kana, kanji, romaji, français, thème, niveau, source, notes et exemples.</div></div>
+        <div><div class="detail-label">Fiches d’interaction</div><div class="detail-text">Elles sont pensées pour produire un japonais poli, adulte, chaleureux et prudent, avec une sensibilité de 1 à 5 selon le degré de délicatesse.</div></div>
+      </div>
+    </details>
+
+    <details class="details" open>
+      <summary>4. Audio et approfondissement avec le GPT perso</summary>
+      <div class="detail-grid">
+        <div><div class="detail-label">Clic simple</div><div class="detail-text">Un clic sur un mot ou une phrase japonaise lance la prononciation audio avec la synthèse vocale japonaise du navigateur.</div></div>
+        <div><div class="detail-label">Double-clic / double-tap</div><div class="detail-text">Un double-clic sur un élément japonais ouvre un choix entre trois niveaux : analyse légère, analyse ciblée ou explications complètes. La demande choisie est ensuite copiée pour le GPT perso.</div></div>
+        <div><div class="detail-label">Objectif du GPT perso</div><div class="detail-text">Le GPT n’est pas la base de données principale. Il sert à creuser, expliquer, corriger, simuler des conversations et générer des variantes naturelles.</div></div>
+      </div>
+    </details>
+
+    <details class="details">
+      <summary>5. Philosophie d’apprentissage</summary>
+      <div class="detail-grid">
+        <div><div class="detail-label">Débutant exigeant</div><div class="detail-text">Les explications doivent rester accessibles, mais ne pas cacher la complexité : particules, sous-entendus, niveaux de politesse, registres et nuances sont importants.</div></div>
+        <div><div class="detail-label">Japonais naturel</div><div class="detail-text">On évite les traductions trop françaises ou trop littérales. L’objectif est de produire des phrases que des Japonais pourraient vraiment utiliser ou comprendre naturellement.</div></div>
+        <div><div class="detail-label">Prudence culturelle</div><div class="detail-text">Sur les sujets personnels ou sensibles, le projet privilégie des questions ouvertes, modestes, non intrusives, avec possibilité de ne pas répondre.</div></div>
+      </div>
+    </details>
+
+    <div class="example">
+      <strong>Résumé technique</strong><br>
+      Données chargées actuellement : ${totalVocab} cartes vocabulaire au total, ${totalGrammar} fiches grammaire,
+      ${totalInteractions} fiches interaction. Le site fonctionne sans serveur : il suffit de déposer <code>index.html</code>
+      et les fichiers <code>.js</code> dans le dépôt GitHub Pages.
+    </div>`;
+  openModal();
+}
+
+function init(){buildFilters();renderVocab();renderGrammar();renderInteractions();buildFlash();setTab('vocab');updateSummary()}init();
+</script>
+</body>
+</html>
